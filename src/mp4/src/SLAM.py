@@ -133,7 +133,9 @@ class SLAM:
             #curr_lidar[x_points[i]*10+200,y_points[i]*10+200]= 255
             self.map[x,y]= (255, 255, 255)
         #cv2.imshow("lidar",curr_lidar)
-        self.map[np.floor(x_pos)*5 + self.width/2 - self.x_start,np.floor(y_pos)*5 + self.height/2 - self.y_start]= (0, 255, 0)
+        temp_x = int(np.floor(x_pos)*5 + self.width/2 - self.x_start)
+        temp_y = int(np.floor(y_pos)*5 + self.height/2 - self.y_start)
+        self.map[temp_x, temp_y]= (0, 255, 0)
         self.prev_theta = theta
         slam_map_im = self.cvBridge.cv2_to_imgmsg(self.map, 'bgr8')
         self.birdsEyeViewPub.publish(slam_map_im)

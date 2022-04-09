@@ -24,7 +24,7 @@ def get_steer_angle(phi):
 class GEMController(object):
 
     def __init__(self):
-	print('gem controller init')
+        print('gem controller init')
         rospy.init_node("gem_ackermann_controller")
 
         self.right_rear_link = None
